@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { catchError } from 'rxjs/internal/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -19,7 +18,14 @@ export class FetchApiDataService {
 
   // Making the api call for the user registration endpoint
   public userRegister(userData: any): Observable<any> {
-    return this.http.post(apiUrl + 'users', userData).pipe(
+    return this.http
+      .post(apiUrl + 'users', userData, { responseType: 'text' })
+      .pipe(catchError(this.handleError));
+  }
+
+  // allow a user to login
+  public userLogin(userData: any): Observable<any> {
+    return this.http.post(apiUrl + 'login', userData).pipe(
       catchError(this.handleError)
     );
   }
@@ -34,13 +40,6 @@ export class FetchApiDataService {
     }
     return throwError(
       'Something bad happened; please try again later!'
-    );
-  }
-
-  // allow a user to login
-  public userLogin(userData: any): Observable<any> {
-    return this.http.post(apiUrl + 'login', userData).pipe(
-      catchError(this.handleError)
     );
   }
 
