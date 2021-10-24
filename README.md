@@ -1,6 +1,7 @@
-# CinemAPIAngularApp
+# Achievement 6: CinemAPI: Angular App
+This project focuses on the client-side of my CinemAPI application, built using Angular. This project relies on existing server-side code (REST API and database that I also built). The GitHub Repository for that project can be found here: https://github.com/janeweggenmann/cinemAPI.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
+To view this published Angular application, please visit: https://janeweggenmann.github.io/cinemAPI-angular-app/.
 
 ## Development server
 
@@ -22,6 +23,4 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
