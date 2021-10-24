@@ -1,34 +1,33 @@
 <app-navbar></app-navbar>
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>
-      User Profile
-    </mat-card-title>
-    <mat-card-subtitle>
-      Welcome, {{user.Username}}
-    </mat-card-subtitle>
-  </mat-card-header>
-
-  <mat-card-content>
-    <p>Username: {{user.Username}}</p>
-    <p>Email: {{user.Email}}</p>
-    <p>Birthday: {{user.Birthdate}}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button (click)="openEditProfileDialog()" color="primary">Edit</button>
-    <button mat-raised-button color="warn" (click)="deleteProfile()">Delete</button>
-  </mat-card-actions>
-</mat-card>
-<div>
-  <h1>{{user.Username}}'s Favorite Movies</h1>
-  <mat-card *ngFor="let movie of favorites;">
-    <mat-card-header>
-      <mat-card-title>
-        {{movie.Name}}
-      </mat-card-title>
-    </mat-card-header>
-    <img src={{movie.ImageURL}} width="300" />
-    <button mat-raised-button color="warn" (click)="removeFromFavs(movie._id)">Remove from
-      Favorites</button>
+<div class="profile-info">
+  <h1>Welcome, {{user.Username}}!</h1>
+  <h3>User Profile</h3>
+  <mat-card class="profile-mat-card">
+    <mat-card-content>
+      <p>USERNAME: {{user.Username}}</p>
+      <p>EMAIL: {{user.Email}}</p>
+      <p>BIRTHDAY: {{user.Birthdate}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="openEditProfileDialog()" class="btn-primary">Edit</button>
+      <button mat-raised-button (click)="deleteProfile()" class="btn-warn">Delete</button>
+    </mat-card-actions>
   </mat-card>
+</div>
+<div class="profile-favorites">
+  <h3>Favorite Movies</h3>
+  <div class="profile-favorites-grid">
+    <mat-card *ngFor="let movie of favorites;">
+      <mat-card-header>
+        <mat-card-title>
+          {{movie.Name}}
+        </mat-card-title>
+      </mat-card-header>
+      <img src={{movie.ImageURL}} class="profile-favorites-img" />
+      <mat-card-actions>
+        <button mat-raised-button (click)="removeFromFavs(movie._id)" class="btn-warn">Remove from
+          Favorites</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>

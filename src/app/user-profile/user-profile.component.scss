@@ -1,0 +1,95 @@
+.profile-info, .profile-favorites {
+  text-align: left;
+  margin: 0 auto;
+  padding: 0px 16px;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: none;
+  font-weight: 300;
+  color: #3c3c3c;
+  font-size: 20pt;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #3c3c3c;
+  text-transform: uppercase;
+  font-size: 15pt;
+}
+
+.profile-mat-card {
+  margin: 5px 0px 20px 0px !important;
+  width: 400px;
+}
+
+.mat-card-actions {
+  padding: 10px;
+  padding-bottom: 20px !important;
+}
+
+.mat-card-content {
+  padding-top: 10px;
+}
+
+.btn-primary {
+  background-color:#718C6a;
+  color: white;
+  border-color: #3c3c3c;
+  font-family: 'Oswald', sans-serif;
+  min-width: 150px;
+  font-size: 14pt !important;
+  height: 45px;
+  margin: 10px;
+}
+
+.btn-warn {
+  background-color:#862d2d;
+  color: white;
+  border-color: #3c3c3c;
+  font-family: 'Oswald', sans-serif;
+  min-width: 150px;
+  font-size: 14pt !important;
+  height: 45px;
+  margin: 10px;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-warn:hover,
+.btn-warn:active,
+.btn-warn:focus {
+  opacity: 80%;
+  color: white;
+  border-color: #3c3c3c;
+}
+
+.profile-favorites-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.profile-favorites-img {
+  width: 350px;
+  height: 180px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.mat-card-header {
+  text-align: left;
+  padding: 10px 0px;
+}
+
+.mat-card-title {
+  font-family: 'Anton', sans-serif;
+  text-transform: uppercase;
+}
+
+.mat-card {
+  margin: 5px;
+}

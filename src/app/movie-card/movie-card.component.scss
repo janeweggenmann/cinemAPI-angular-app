@@ -1,0 +1,53 @@
+.movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mat-card {
+  margin: 5px;
+}
+
+.movie-card-img {
+  width: 350px;
+  height: 180px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.mat-card-header {
+  text-align: left;
+  padding: 10px 0px;
+}
+
+.mat-card-title {
+  font-family: 'Anton', sans-serif;
+  text-transform: uppercase;
+}
+
+.mat-card-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 10pt;
+  margin-bottom: 5px;
+}
+
+.mat-icon {
+  margin: 0px 10px;
+  padding-top: 7px;
+}
+
+.mat-button {
+  padding-bottom: 8px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-size: 12pt;
+  font-weight: 300;
+}
+
+.mat-card-actions {
+  margin: 0 auto;
+  padding: 7px 0px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}

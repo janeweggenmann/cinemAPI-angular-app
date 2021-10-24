@@ -1,11 +1,10 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-subtitle>Synopsis</mat-card-subtitle>
     <mat-card-title>{{data.Name}}</mat-card-title>
+    <mat-card-subtitle>Year Released: {{data.Year.slice(0,4)}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <img src={{data.ImageURL}} width="420" />
-    <p>Year Released: {{data.Year.slice(0,4)}}</p>
+    <img src={{data.ImageURL}} class="synopsis-img" />
     <p>{{data.Description}}</p>
   </mat-card-content>
 </mat-card>

@@ -1,11 +1,14 @@
 <div class="main-page">
-  <h1>
-    Welcome to cinemAPI
+  <h1 class="cinemapi_title-thin">
+    Cinem<span class="cinemapi_title-thick">API</span>
   </h1>
-  <button mat-raised-button (click)="openUserRegistrationDialog()" style="margin-right: 10px;" color="primary">
-    Sign Up
-  </button>
-  <button mat-raised-button color="primary" (click)="openUserLoginDialog()" style="margin-right: 10px;">
-    Login
-  </button>
+  <p>Your place to find information on movies, genres, and directors.</p>
+  <div class="welcome-buttons">
+    <button mat-raised-button (click)="openUserRegistrationDialog()" class="btn-secondary">
+      Sign Up
+    </button>
+    <button mat-raised-button (click)="openUserLoginDialog()" class="btn-primary">
+      Login
+    </button>
+  </div>
 </div>
