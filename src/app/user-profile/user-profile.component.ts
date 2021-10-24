@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { UserProfileEditComponent } from '../user-profile-edit/user-profile-edit.component';
@@ -6,6 +6,9 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
+import { MatCard } from '@angular/material/card';
+
+const user = localStorage.getItem('user');
 
 @Component({
   selector: 'app-user-profile',
@@ -16,9 +19,9 @@ import { MatDialog } from '@angular/material/dialog';
 export class UserProfileComponent implements OnInit {
 
   user: any = {};
+  favorites: any = [];
   movies: any[] = [];
-  favorites: any[] = [];
-  favs: any = [];
+  favs: any[] = [];
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -30,15 +33,15 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
-    this.getMovies();
-    this.getFavorites();
+    this.getUserMovies();
+    this.getUserFavorites();
   }
 
   getUser(): void {
     let user = localStorage.getItem('user');
     this.fetchApiData.getUser(user).subscribe((res: any) => {
       this.user = res;
-      this.user.Birthday = res.Birthday.slice(0, 10);
+      this.user.Birthdate = res.Birthday.slice(0, 10);
     });
   }
 
@@ -60,32 +63,32 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
-  getFavorites(): void {
-    let user = localStorage.getItem('user');
-    this.fetchApiData.getUser(user).subscribe((res: any) => {
-      this.user = res;
-      this.favorites = res.FavoriteMovies;
-      return this.favorites;
-    });
+  getUserFavorites(): void {
+    this.fetchApiData.getUser(user).subscribe((resp: any) => {
+      this.favs = resp.FavoriteMovies;
+      console.log('favs', this.favs);
+      return this.favs;
+    })
   }
 
-  getMovies(): void {
+  getUserMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
+      console.log('movies', this.movies);
       return this.filterMovies();
-    });
+    })
   }
 
   filterMovies(): void {
     this.movies.forEach((movie: any) => {
-      if (this.favorites.includes(movie._id)) {
-        this.favs.push(movie);
+      if (this.favs.includes(movie._id)) {
+        this.favorites.push(movie);
       }
     });
-    return this.favs;
+    return this.favorites;
   }
 
-  removeFromFavs(id: any): void {
+  removeFromFavs(id: any) {
     this.fetchApiData.removeFavorites(id).subscribe((resp: any) => {
       this.snackBar.open("Removed from favorites.", 'OK', {
         duration: 3000,
@@ -94,7 +97,7 @@ export class UserProfileComponent implements OnInit {
         window.location.reload()
       }, 3000);
     });
-    return this.getFavorites();
+    return this.getUserFavorites();
   }
 
 }

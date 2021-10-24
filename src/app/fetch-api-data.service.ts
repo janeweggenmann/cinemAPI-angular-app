@@ -77,7 +77,7 @@ export class FetchApiDataService {
     return this.http.get<any>(apiUrl + 'directors/:Name', {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         })
     }).pipe(
       map(this.extractResponseData),
@@ -91,7 +91,7 @@ export class FetchApiDataService {
     return this.http.get<any>(apiUrl + 'genres/Name', {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         })
     }).pipe(
       map(this.extractResponseData),
@@ -137,7 +137,7 @@ export class FetchApiDataService {
     return this.http.delete<any>(apiUrl + 'users/${username}', {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         })
     }).pipe(
       map(this.extractResponseData),
@@ -146,13 +146,12 @@ export class FetchApiDataService {
   }
 
   // gets a user's favorite movies
-  getFavorites(): Observable<any> {
+  getFavorites(username: any): Observable<any> {
     const token = localStorage.getItem('token');
-    const username = localStorage.getItem('user');
-    return this.http.get<any>(apiUrl + `users/${username}/favorites`, {
+    return this.http.get<any>(apiUrl + `users/${username}`, {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         })
     }).pipe(
       map(this.extractResponseData),
@@ -161,13 +160,13 @@ export class FetchApiDataService {
   }
 
   // add a movie to user's list of favorites
-  addToFavorites(id: any): Observable<any> {
+  addToFavorites(id: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
-    return this.http.post<any>(apiUrl + `users/${username}/favorites/${id}`, id, {
+    return this.http.post<any>(apiUrl + 'users/' + username + '/favorites/' + id, null, {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         })
     }).pipe(
       map(this.extractResponseData),
@@ -182,7 +181,7 @@ export class FetchApiDataService {
     return this.http.delete<any>(apiUrl + `users/${username}/favorites/${id}`, {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         })
     }).pipe(
       map(this.extractResponseData),

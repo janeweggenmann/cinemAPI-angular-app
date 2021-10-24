@@ -12,7 +12,7 @@
   <mat-card-content>
     <p>Username: {{user.Username}}</p>
     <p>Email: {{user.Email}}</p>
-    <p>Birthday: {{user.Birthday}}</p>
+    <p>Birthday: {{user.Birthdate}}</p>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button (click)="openEditProfileDialog()" color="primary">Edit</button>
@@ -21,7 +21,7 @@
 </mat-card>
 <div>
   <h1>{{user.Username}}'s Favorite Movies</h1>
-  <mat-card *ngFor="let movie of favs;">
+  <mat-card *ngFor="let movie of favorites;">
     <mat-card-header>
       <mat-card-title>
         {{movie.Name}}
