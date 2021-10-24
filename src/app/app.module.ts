@@ -23,6 +23,7 @@ import { UserRegistrationFormComponent } from './user-registration-form/user-reg
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GenreCardComponent } from './genre-card/genre-card.component';
