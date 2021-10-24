@@ -6,6 +6,21 @@
   padding-bottom: 50px;
 }
 
+@media screen and (max-width: 600px) {
+  .top-nav {
+    flex-direction: column;
+    text-align: center;
+    justify-items:stretch ;
+  }
+  .cinemapi_title-thin,
+  .cinemapi_title-thick {
+    padding-bottom: 20px;
+  }
+  .nav-links {
+    padding-left: 0px !important;
+  }
+}
+
 .cinemapi_title-thin {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;

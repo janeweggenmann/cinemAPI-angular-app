@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="profile-info">
-  <h1>Welcome, {{user.Username}}!</h1>
+  <h1 class="profile-title">Welcome, {{user.Username}}!</h1>
   <h3>User Profile</h3>
   <mat-card class="profile-mat-card">
     <mat-card-content>
@@ -25,7 +25,7 @@
       </mat-card-header>
       <img src={{movie.ImageURL}} class="profile-favorites-img" />
       <mat-card-actions>
-        <button mat-raised-button (click)="removeFromFavs(movie._id)" class="btn-warn">Remove from
+        <button mat-raised-button (click)="removeFromFavs(movie._id)" class="btn-remove">Remove from
           Favorites</button>
       </mat-card-actions>
     </mat-card>

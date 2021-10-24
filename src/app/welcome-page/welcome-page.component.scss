@@ -63,3 +63,13 @@ p {
   font-weight: 300;
   color: #3c3c3c;
 }
+
+@media screen and (max-width: 600px) {
+  .main-page {
+    padding: 30px;
+  }
+  .cinemapi_title-thin, .cinemapi_title-thick {
+    font-size: 36pt;
+    padding-top: 100px;
+  }
+}

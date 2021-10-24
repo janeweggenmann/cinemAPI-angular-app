@@ -38,3 +38,17 @@ body {
   text-align: center;
   margin: 0 auto;
 }
+
+input {
+  font-family: "Montserrat"; 
+  font-weight: 300;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    padding: 50px 10px;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
+  }
+}

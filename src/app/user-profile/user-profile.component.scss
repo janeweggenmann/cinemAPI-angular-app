@@ -25,6 +25,45 @@ h3 {
   width: 400px;
 }
 
+@media screen and (max-width: 600px) {
+  .profile-mat-card {
+    margin: 5px 0px 20px 0px !important;
+    max-width: 300px;
+  }
+  .btn-primary, .btn-warn {
+    max-width: 80px !important;
+    height: 40px !important;
+  }
+  .mat-card {
+    max-width: 300px;
+  }
+  .profile-title {
+    font-size: 16pt;
+    text-align: center;
+    padding-bottom: 15px;
+  }
+  .profile-favorites-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+  }
+  .profile-favorites-img {
+    max-width: 300px;
+  }
+  .mat-card {
+    max-width: 300px;
+  }
+  .mat-card-actions {
+    padding: 7px !important;
+    padding-bottom: 10px !important;
+  }
+  .profile-info, .profile-favorites {
+    padding: 10px;
+    margin: 0 auto;
+  }
+} 
+
 .mat-card-actions {
   padding: 10px;
   padding-bottom: 20px !important;
@@ -39,7 +78,7 @@ h3 {
   color: white;
   border-color: #3c3c3c;
   font-family: 'Oswald', sans-serif;
-  min-width: 150px;
+  width: 150px;
   font-size: 14pt !important;
   height: 45px;
   margin: 10px;
@@ -50,7 +89,18 @@ h3 {
   color: white;
   border-color: #3c3c3c;
   font-family: 'Oswald', sans-serif;
-  min-width: 150px;
+  width: 150px;
+  font-size: 14pt !important;
+  height: 45px;
+  margin: 10px;
+}
+
+.btn-remove {
+  background-color:#862d2d;
+  color: white;
+  border-color: #3c3c3c;
+  font-family: 'Oswald', sans-serif;
+  width: 170px;
   font-size: 14pt !important;
   height: 45px;
   margin: 10px;
@@ -61,7 +111,10 @@ h3 {
 .btn-primary:focus,
 .btn-warn:hover,
 .btn-warn:active,
-.btn-warn:focus {
+.btn-warn:focus,
+.btn-remove:hover,
+.btn-remove:active,
+.btn-remove:focus {
   opacity: 80%;
   color: white;
   border-color: #3c3c3c;
