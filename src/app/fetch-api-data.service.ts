@@ -143,7 +143,7 @@ export class FetchApiDataService {
     }).pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
-    )
+    );
   }
 
   /** Allow a user to edit their information

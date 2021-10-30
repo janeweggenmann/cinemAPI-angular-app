@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, NgModule } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { Router } from '@angular/router';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { UserProfileEditComponent } from '../user-profile-edit/user-profile-edit.component';
@@ -6,9 +6,8 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { MatCard } from '@angular/material/card';
 
-const user = localStorage.getItem('user');
+let user = localStorage.getItem('user');
 
 @Component({
   selector: 'app-user-profile',
@@ -16,7 +15,7 @@ const user = localStorage.getItem('user');
   styleUrls: ['./user-profile.component.scss']
 })
 
-export class UserProfileComponent implements OnInit {
+export class UserProfileComponent implements OnInit, AfterContentChecked {
 
   user: any = {};
   favorites: any = [];
@@ -34,14 +33,25 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getUser();
     this.getUserMovies();
-    this.getUserFavorites();
+  }
+
+  ngAfterContentChecked(): void {
+    this.filterMovies();
   }
 
   getUser(): void {
-    let user = localStorage.getItem('user');
-    this.fetchApiData.getUser(user).subscribe((res: any) => {
-      this.user = res;
-      this.user.Birthdate = res.Birthday.slice(0, 10);
+    this.fetchApiData.getUser(user).subscribe((resp: any) => {
+      this.user = resp;
+      this.user.Birthdate = resp.Birthday.slice(0, 10);
+      return this.user;
+    });
+    this.getUserFavorites();
+  }
+
+  getUserFavorites(): void {
+    this.fetchApiData.getUser(user).subscribe((resp: any) => {
+      this.favs = resp.FavoriteMovies;
+      return this.favs;
     });
   }
 
@@ -64,27 +74,16 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
-  getUserFavorites(): void {
-    this.fetchApiData.getUser(user).subscribe((resp: any) => {
-      this.favs = resp.FavoriteMovies;
-      console.log('favs', this.favs);
-      return this.favs;
-    })
-  }
-
   getUserMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
-      console.log('movies', this.movies);
-      return this.filterMovies();
-    })
+      return this.movies;
+    });
   }
 
   filterMovies(): void {
-    this.movies.forEach((movie: any) => {
-      if (this.favs.includes(movie._id)) {
-        this.favorites.push(movie);
-      }
+    this.favorites = this.movies.filter((movie: any) => {
+      return this.favs.includes(movie._id);
     });
     return this.favorites;
   }
@@ -98,7 +97,6 @@ export class UserProfileComponent implements OnInit {
         window.location.reload()
       }, 3000);
     });
-    return this.getUserFavorites();
+    return this.getUser();
   }
-
 }
